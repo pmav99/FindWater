@@ -1,5 +1,8 @@
-import os.path
+# Adding OpenCV to sys.path
 import sys
+sys.path.append('/usr/local/lib/python2.7/site-packages')
+
+import os.path
 import cv2
 import utils
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
@@ -19,16 +22,17 @@ for f in os.listdir('yes'):
 	count = count + 1
 	labels.append(1)
 	img = cv2.imread('yes/' + f, 0)
-	features.append(hog(img))
+	features.append(hog(img,normalise=True))
 	print 'yes/' + f
-	print 'processed up to image ' + str(count)
+	print 'processed up to image ' + str(count) + ' in "yes" folder'
+count = 0
 for f in os.listdir('no'):
 	count = count + 1
 	labels.append(0)
 	img = cv2.imread('no/' + f, 0)
-	features.append(hog(img))
+	features.append(hog(img,normalise=True))
 	print 'no/' + f
-	print 'processed up to image ' + str(count)
+	print 'processed up to image ' + str(count) + ' in "no" folder'
 print 'on to training'
 clf = svm.SVC().fit(features, labels)
 print cross_val_score(clf, features, labels, cv=5)

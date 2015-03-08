@@ -4,8 +4,8 @@ import cStringIO
 
 origin1 = -0.8
 origin2 = 36.0
-for i in range(0,6):
-	for j in range(0,5):
+for i in range(0,3):
+	for j in range(0,2):
 		lon = origin1 + i*0.1;
 		lat = origin2 + j*0.1;
 		url = "https://maps.googleapis.com/maps/api/staticmap?center=" + str(lon) + "," + str(lat) + "&zoom=12&size=400x400&style=feature:water|color:0xFF0066&key=AIzaSyDzWmvcVKeyoDgyvnLgHpVnCLpypWLrkPY"
@@ -30,11 +30,11 @@ for i in range(0,6):
 						if r <= 260 and r >= 250 and g <= 5 and b <= 107 and b >= 95:
 							r, g, b = rgb.getpixel((w,h - 5))
 							if r <= 260 and r >= 250 and g <= 5 and b <= 107 and b >= 95:
-								img_satellite.save("yes/" + str(lon) + "_" + str(lat) + ".bmp")
+								img_satellite.save("yesNeal/" + str(lon) + "_" + str(lat) + ".bmp")
 								w = width
 								h = height
 								yes = 1
 				h = h + 11
 			w = w + 11
 		if yes == 0:
-			img_satellite.save("no/" + str(lon) + "_" + str(lat) + ".bmp")
+			img_satellite.save("noNeal/" + str(lon) + "_" + str(lat) + ".bmp")
