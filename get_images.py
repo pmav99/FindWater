@@ -2,10 +2,10 @@ from PIL import Image
 import urllib2 as urllib
 import cStringIO
 
-origin1 = -0.8
+origin1 = 3.0
 origin2 = 36.0
-for i in range(0,3):
-	for j in range(0,2):
+for i in range(0,5):
+	for j in range(0,5):
 		lon = origin1 + i*0.1;
 		lat = origin2 + j*0.1;
 		url = "https://maps.googleapis.com/maps/api/staticmap?center=" + str(lon) + "," + str(lat) + "&zoom=12&size=400x400&style=feature:water|color:0xFF0066&key=AIzaSyDzWmvcVKeyoDgyvnLgHpVnCLpypWLrkPY"
